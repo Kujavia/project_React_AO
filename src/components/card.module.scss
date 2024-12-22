@@ -1,0 +1,70 @@
+
+.card_container{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #eaeaea ;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 50px);
+    border: 0.5px grey solid;
+    &:hover{
+        // background-color:$hoverButton;
+        background-color:   #7A9D96;
+
+    }
+    .button_container{
+        grid-column: span 3;
+    }
+}
+
+
+.card_buttonAdd{
+    background-color:#7ebc59;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px rgb(0, 0, 0) solid;
+    &:hover{
+        // background-color:$hoverButton;
+        background-color:goldenrod;
+        transform: scale(1.05);
+    }
+    &:active {
+        background-color: teal;
+        transform: scale(0.95);
+    }
+    &:focus {
+        outline: none;
+        background-color: tomato;
+        box-shadow: 0 0 5px  rgb(131, 129, 131);
+    }
+}
+.card_buttonDelete{
+    background-color: #368cbf ;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px rgb(0, 0, 0) solid;
+    &:hover{
+        // background-color:$hoverButton;
+        background-color:goldenrod;
+        transform: scale(1.05);
+    }
+    &:active {
+        background-color: teal;
+        transform: scale(0.95);
+    }
+    &:focus {
+        outline: none;
+        background-color: tomato;
+        box-shadow: 0 0 5px  rgb(131, 129, 131);
+    }
+}

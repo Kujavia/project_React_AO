@@ -1,0 +1,50 @@
+ $main-font: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$secondary-font: "Sen", sans-serif;
+
+$primary-color: #00008B;
+$accent-color: #FF8C00;
+$second-color:#333;
+$frame_color: rgb(163, 210, 242);
+$frame_color2: rgb(184, 184, 184);
+$button_preview_color:azure;
+$white: #fff;
+$search-hover-color: rgba(236, 94, 68, 0.723);
+$background-color-dark: linear-gradient(135deg, rgb(0, 0, 0), #1b1b26, #16213e);
+$hoverButton:rgba(9, 99, 39, 0.495);
+$active-color: rgba(105, 235, 148, 0.495);
+$focus-color: rgba(218, 235, 105, 0.495);
+
+$transition-time: 0.2s; 
+
+%flex-element-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  %button{
+      background-color:#7ebc59;
+      color: white;
+      border-radius: 10px;
+      width: 100px;
+      height: 35px;
+      padding: 5px;
+      margin: 5px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border: 1px rgb(0, 0, 0) solid;
+      &:hover{
+          // background-color:$hoverButton;
+          background-color:goldenrod;
+          transform: scale(1.05);
+      }
+      &:active {
+          background-color: teal;
+          transform: scale(0.95);
+      }
+      &:focus {
+          outline: none;
+          background-color: tomato;
+          box-shadow: 0 0 5px fuchsia;
+      }
+  }
+  
