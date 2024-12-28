@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import Content from './components/Content'
+import Content from './components/ContentCardApi'
 import Footer from './components/Footer'
 import LoginPage from './components/LoginPage'
-import СardModal from './components/wordCardModal'
+import WordСard from './components/wordCard'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Missing from './components/Missing'
 import News from './components/News'
@@ -30,15 +30,14 @@ function App() {
     <Router>
       <div>
         <Header/>
-
         <Routes>
           <Route path="/" element={<Content/>}/>
-          <Route path="/game" element={<СardModal/>}/>
-          <Route path="*" element={<Missing/>}/>
+          <Route path="/game" element={<WordСard/>}/>
           <Route path="/news" element={<News news={news}/>}/>
           <Route path="/news/:id" element={<NewsPage news={news}/>}/>
+          <Route path="*" element={<Missing/>}/>
         </Routes>
-        <СardModal/>
+        <WordСard/>
         <Footer/>
       </div>
     </Router>

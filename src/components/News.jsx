@@ -3,15 +3,19 @@ import { Link} from "react-router-dom"
     function News(props) {
         const news = props.news
 
-        return(
+        return (
             <ul>
-            {
-                news.map((item) =>
-                    <Link key={item.id} to={`/news/${item.id}`}> Новость {item.id} </Link>
-            )
-            }
+                {
+                    news.map((item) => (
+                        <li key={item.id}>
+                            <Link to={`/news/${item.id}`}>
+                            Новость {item.id}
+                            </Link>
+                        </li>
+                    ))
+                }
             </ul>
-        )
+        );
     }
 
     export default News

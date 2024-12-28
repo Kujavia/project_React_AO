@@ -41,15 +41,28 @@
 
 // export default Cards
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./vars.scss";
 import styles from "./card.module.scss";
 
-function Cards(props) {
-    const {id, english, transcription, russian, initialData, onSave, onDelete } = props;
-     // Проверяем, есть ли initialData, иначе используем пустой объект
-     const [formData, setFormData] = useState(initialData || { english: '', transcription: '', russian: '' });
-     const [isEditing, setIsEditing] = useState(false);
+function TabCards(props){
+    const { id, english, transcription, russian, onSave, onDelete } = props;
+    
+    // Инициализируем состояние с пустыми значениями
+    const [formData, setFormData] = useState({
+        english: '',
+        transcription: '',
+        russian: ''
+    });
+    
+    const [isEditing, setIsEditing] = useState(false);
+
+    // Используем useEffect для обновления formData при начале редактирования
+    useEffect(() => {
+        if (isEditing) {
+            setFormData({ english, transcription, russian });
+        }
+    }, [isEditing, english, transcription, russian]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -108,4 +121,5 @@ function Cards(props) {
     );
 }
 
-export default Cards;
+
+export default TabCards;

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import Cards from "./contentCard";
+import TabCards from "./contentCard";
 import "./vars.scss";
 import l from "./content.module.scss";
 import axios from "axios";
@@ -9,6 +9,7 @@ function Content() {
     const [words, setWords] = useState([]); // Состояние для хранения слов
     const [loading, setLoading] = useState(true); // Состояние загрузки
     const [error, setError] = useState(null); // Состояние для хранения ошибок
+
 
     useEffect(() => {
         const fetchWords = async () => {
@@ -30,14 +31,34 @@ function Content() {
     }
 
     if (error) {
-        return <div>Ошибка: {error.message}</div>; // Показываем сообщение об ошибке
+        return <div>Ошибка: {error.message}</div>;
     }
+
+
+
+    const deleteItem = (id) => { 
+        const updatedWords = words.filter((word) => word.id !== id);
+        setWords(updatedWords); 
+        console.log(id);
+    }
+
+    const handleWordStudied = () => {
+        setStudiedWordsCount(prevCount => prevCount + 1);
+      };
+
 
     return (
         <div className={l.container}>
                 <ul className={l.list_Cards}>
                     {words.map((elem) => (
-                        <Cards key={elem.id} id={elem.id} english={elem.english} russian={elem.russian} transcription={elem.transcription} />
+                        <TabCards 
+                        key={elem.id} 
+                        id={elem.id} 
+                        english={elem.english} 
+                        russian={elem.russian} 
+                        transcription={elem.transcription} 
+                        handleWordStudied={handleWordStudied} 
+                        deleteItem ={()=> {deleteItem(elem.id)}} />
                     ))}
                 </ul>
         </div>

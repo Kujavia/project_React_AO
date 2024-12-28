@@ -1,14 +1,20 @@
-import { useParams} from "react-router-dom"
+import { useParams } from 'react-router-dom';
 
-    function NewsPage(props) {
-        const {id} = useParams()
-        const news = props.news.find(news => nems.id ==id)
+function NewsPage({ news }) {
+    const { id } = useParams();
+    const newsItem = news.find(item => item.id === id);
 
-        return(
-           <p>
-            {news.text}
-           </p>
-        )
+    if (!newsItem) {
+        return <div>Новость не найдена</div>;
     }
 
-    export default NewsPage
+    return (
+        <div>
+            <h1>Новость {newsItem.id}</h1>
+            <p>{newsItem.text}</p>
+        </div>
+    );
+}
+
+export default NewsPage;
+

@@ -24,13 +24,15 @@
 
 // export default СardModal
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from "./wordCardModal.module.scss";
 
-function СardModal() {
+function WordСard() {
     const [words, setWords] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showTranslation, setShowTranslation] = useState(false);
+
+    const buttonRef = useRef(null);
 
     const fetchWords = async () => {
         try {
@@ -45,6 +47,14 @@ function СardModal() {
     useEffect(() => {
         fetchWords();
     }, []);
+
+    // Используем useEffect для установки фокуса на кнопку
+    useEffect(() => {
+        if (buttonRef.current) {
+            buttonRef.current.focus();
+        }
+    }, [currentIndex]);
+
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
@@ -76,7 +86,12 @@ function СardModal() {
 
                 {showTranslation && <p>{russian}</p>}
                 {!showTranslation && (
-                    <button className={styles.modalCard_button}  onClick={() => setShowTranslation(true)}>Посмотреть перевод</button>
+                    <button 
+                    ref={buttonRef}
+                    className={styles.modalCard_button}  
+                    onClick={() => setShowTranslation(true)}>
+                        Посмотреть перевод
+                        </button>
                 )}
             </section>
 
@@ -85,4 +100,4 @@ function СardModal() {
     );
 }
 
-export default СardModal;
+export default WordСard;
