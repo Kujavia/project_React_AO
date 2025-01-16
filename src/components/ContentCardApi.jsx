@@ -9,8 +9,6 @@ function Content() {
     const [words, setWords] = useState([]); // Состояние для хранения слов
     const [loading, setLoading] = useState(true); // Состояние загрузки
     const [error, setError] = useState(null); // Состояние для хранения ошибок
-
-
     useEffect(() => {
         const fetchWords = async () => {
             try {
@@ -23,18 +21,15 @@ function Content() {
             }
         };
 
-        fetchWords(); // Вызываем функцию для загрузки данных
+        fetchWords();
     }, []); // Пустой массив зависимостей означает, что эффект выполнится только один раз при монтировании компонента
 
     if (loading) {
         return <div>Загрузка...</div>; // Показываем индикатор загрузки
     }
-
     if (error) {
         return <div>Ошибка: {error.message}</div>;
     }
-
-
 
     const deleteItem = (id) => { 
         const updatedWords = words.filter((word) => word.id !== id);
@@ -56,6 +51,8 @@ function Content() {
                         id={elem.id} 
                         english={elem.english} 
                         russian={elem.russian} 
+                        // onSave={handleSave}
+                        // onDelete={handleDelete}
                         transcription={elem.transcription} 
                         handleWordStudied={handleWordStudied} 
                         deleteItem ={()=> {deleteItem(elem.id)}} />
@@ -66,34 +63,3 @@ function Content() {
 }
 
 export default Content;
-
-
-// без апи
-// import Cards from "./contentCard";
-// import "./vars.scss"
-// import l from "./content.module.scss"
-
-// function Content(){
-
-//     const words = [{id:"1", name:"зонтик", color:"red"},
-//         {id:"2", name:"план", color:"green"},
-//         {id:"3", name:"фунт", color:"blue"},
-//         {id:"4", name:"Лондон", color:"grey"}]
-
-
-
-
-//     return(
-//         <div className={l.container}>
-//             <div>
-//                 <ul className={l.list_Cards}>
-//                     {words.map((elem)=>
-//                     <Cards key={elem.id} id ={elem.id} name ={elem.name} color={elem.color}  />)
-//                     }
-//                 </ul>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Content

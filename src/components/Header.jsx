@@ -13,6 +13,7 @@ function Header(){
         <Link to="/">Home</Link>
         <Link to="/game">Карточки</Link>
         <Link to="/news">Новости</Link>
+        <Link to="/form">Форма</Link>
         </header>
     )
 }

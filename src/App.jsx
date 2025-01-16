@@ -1,17 +1,15 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Content from './components/ContentCardApi'
 import Footer from './components/Footer'
 import LoginPage from './components/LoginPage'
 import WordСard from './components/wordCard'
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Missing from './components/Missing'
 import News from './components/News'
 import NewsPage from './components/NewsPage'
-
-
-
+import TestForm from './components/FormButton'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 
 function App() {
@@ -33,11 +31,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Content/>}/>
           <Route path="/game" element={<WordСard/>}/>
+          <Route path="/form" element={<TestForm/>}/>
           <Route path="/news" element={<News news={news}/>}/>
           <Route path="/news/:id" element={<NewsPage news={news}/>}/>
           <Route path="*" element={<Missing/>}/>
         </Routes>
-        <WordСard/>
+        {/* <WordСard/> */}
         <Footer/>
       </div>
     </Router>

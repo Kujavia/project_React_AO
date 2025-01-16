@@ -1,29 +1,3 @@
-// import React, { useState } from 'react';
-// import styles from "./wordCardModal.module.scss"
-
-// function СardModal(props){
-//     const{id, english, transcription, russian} = props;
-
-//     return (
-    
-//        <div className={styles.modalCard_container}>
-//         <span className={styles.modalCard_container__arrow_left}>←</span>
-
-//         <section className={styles.modalCard_container__card}>
-//           <p>{english}</p>
-//           <p>{transcription}</p>
-//           <p>{russian}</p>
-//           <button>Проверить</button>
-//         </section>
-
-//         <span className={styles.modalCard_container__arrow_right}>→</span>
-
-//         </div>
-//     )
-// }
-
-// export default СardModal
-
 import React, { useState, useEffect, useRef } from 'react';
 import styles from "./wordCardModal.module.scss";
 
