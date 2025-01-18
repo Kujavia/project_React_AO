@@ -27,5 +27,15 @@
     "globals": "^15.12.0",
     "sass-embedded": "^1.83.0",
     "vite": "^6.0.1"
+  },
+  "proxy": {
+    "/search": {
+      "target": "<https://www.google.com>",
+      "changeOrigin": true
+    },
+    "/api": {
+      "target": "<http://itgirlschool.justmakeit.ru>",
+      "changeOrigin": true
+    }
   }
 }

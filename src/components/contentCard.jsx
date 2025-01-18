@@ -137,7 +137,7 @@ function TabCards(props) {
         // Если все поля валидны
         if (typeof onSave === 'function') {
             console.log("Сохраненные данные:", formData); // Выводим данные в консоль
-            onSave(formData);
+            onSave(id, formData);
             setIsEditing(false); // Закрываем режим редактирования
         } else {
             console.error("onSave is not a function");
@@ -196,7 +196,7 @@ function TabCards(props) {
                     <p>{transcription}</p>
                     <p>{russian}</p>
                     <div className={styles.button_container}>
-                        <button className={styles.card_buttonDelete} onClick={deleteItem}>Удалить</button>
+                        <button className={styles.card_buttonDelete} onClick={handleDelete}>Удалить</button>
                         <button className={styles.card_buttonAdd} onClick={() => setIsEditing(true)}>Редактировать</button>
                     </div>
                 </>
